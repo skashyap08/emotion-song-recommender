@@ -1,10 +1,12 @@
 import cv2
 from fer import FER
-from song_recommender import recommend_song
+from spotify_recommender import recommend_playlist
 
 cap = cv2.VideoCapture(0)
 
 detector = FER(mtcnn=True)
+
+playlist_shown = False
 
 while True:
 
@@ -17,41 +19,59 @@ while True:
 
     if emotions:
 
-        emotion_data = emotions[0]["emotions"]
+        emotion_scores = emotions[0]["emotions"]
 
         detected_emotion = max(
-            emotion_data,
-            key=emotion_data.get
+            emotion_scores,
+            key=emotion_scores.get
         )
-
-        song = recommend_song(detected_emotion)
 
         cv2.putText(
             frame,
             f"Emotion: {detected_emotion}",
-            (20,40),
+            (20, 40),
             cv2.FONT_HERSHEY_SIMPLEX,
             1,
             (0,255,0),
             2
         )
 
-        cv2.putText(
-            frame,
-            f"Song: {song}",
-            (20,80),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.8,
-            (255,0,0),
-            2
-        )
+        if not playlist_shown:
+
+            playlists = recommend_playlist(
+                detected_emotion
+            )
+
+            print("\n========================")
+            print("Detected Emotion:",
+                  detected_emotion)
+            print("========================\n")
+
+            for i, playlist in enumerate(
+                playlists,
+                start=1
+            ):
+                print(
+                    f"{i}. {playlist['name']}"
+                )
+                print(
+                    playlist['url']
+                )
+                print()
+
+            playlist_shown = True
 
     cv2.imshow(
-        "Emotion Song Recommender",
+        "Emotion Playlist Recommender",
         frame
     )
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    key = cv2.waitKey(1)
+
+    if key == ord('r'):
+        playlist_shown = False
+
+    if key == ord('q'):
         break
 
 cap.release()
