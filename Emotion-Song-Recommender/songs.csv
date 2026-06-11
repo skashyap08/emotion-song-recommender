@@ -1,18 +1,21 @@
-emotion,song
-happy,Shape of You
-happy,Happy
-happy,Blinding Lights
-sad,Someone Like You
-sad,Let Her Go
-sad,Fix You
-angry,Believer
-angry,Warriors
-angry,Stronger
-neutral,Perfect
-neutral,Memories
-neutral,Photograph
-surprise,Thunder
-surprise,On Top of the World
-fear,Demons
-fear,Numb
-disgust,Radioactive
+emotion,song,spotify_link
+happy,Brown Munde,https://open.spotify.com/search/Brown%20Munde
+happy,Excuses,https://open.spotify.com/search/Excuses
+happy,Softly,https://open.spotify.com/search/Softly
+happy,Lover,https://open.spotify.com/search/Lover
+
+sad,Qismat,https://open.spotify.com/search/Qismat
+sad,Filhall,https://open.spotify.com/search/Filhall
+sad,Mann Bharrya,https://open.spotify.com/search/Mann%20Bharrya
+
+angry,295,https://open.spotify.com/search/295
+angry,GOAT,https://open.spotify.com/search/GOAT
+angry,Legend,https://open.spotify.com/search/Legend
+
+neutral,Waalian,https://open.spotify.com/search/Waalian
+neutral,Sakhiyaan,https://open.spotify.com/search/Sakhiyaan
+neutral,Prada,https://open.spotify.com/search/Prada
+
+surprise,Players,https://open.spotify.com/search/Players
+surprise,Obsessed,https://open.spotify.com/search/Obsessed
+surprise,Cheques,https://open.spotify.com/search/Cheques
