@@ -19,7 +19,7 @@ while True:
 
     if emotions:
 
-        emotion_scores = emotions[0]["emotions"]
+        emotion_scores = emotions[0]["emotionss"]
 
         detected_emotion = max(
             emotion_scores,
@@ -55,7 +55,7 @@ while True:
                     f"{i}. {playlist['name']}"
                 )
                 print(
-                    playlist['url']
+                    playlist['link']
                 )
                 print()
 
