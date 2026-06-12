@@ -2,6 +2,8 @@ import pandas as pd
 import random
 import webbrowser
 
+opened = False
+
 def recommend_song(emotion):
 
     df = pd.read_csv("songs.csv")
@@ -15,8 +17,13 @@ def recommend_song(emotion):
 
     return {
         "song": selected["song"],
+        "artist": selected["artist"],
         "link": selected["spotify_link"]
     }
 
-def open_song(link):
-    webbrowser.open(link)
+def open_spotify(link):
+    global opened
+
+    if not opened:
+        webbrowser.open(link)
+        opened = True
