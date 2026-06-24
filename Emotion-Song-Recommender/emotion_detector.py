@@ -5,7 +5,6 @@ from song_recommender import recommend_song
 cap = cv2.VideoCapture(0)
 
 # Initialize FER detector
-detector = FER(mtcnn=True)
 
 last_emotion = None
 song_name = ""
