@@ -15,11 +15,7 @@ def recommend_song(emotion):
 
     selected = songs.sample(1).iloc[0]
 
-    return {
-        "song": selected["song"],
-        "artist": selected["artist"],
-        "link": selected["spotify_link"]
-    }
+   return selected["song"]
 
 def open_spotify(link):
     global opened
