@@ -1,25 +1,13 @@
 import pandas as pd
 import random
-import webbrowser
-
-opened = False
 
 def recommend_song(emotion):
 
     df = pd.read_csv("songs.csv")
 
-    songs = df[df["emotion"] == emotion]
+    songs = df[df["emotion"] == emotion]["song"].tolist()
 
-    if songs.empty:
-        return None
+    if songs:
+        return random.choice(songs)
 
-    selected = songs.sample(1).iloc[0]
-
-   return selected["song"]
-
-def open_spotify(link):
-    global opened
-
-    if not opened:
-        webbrowser.open(link)
-        opened = True
+    return "No song found"
