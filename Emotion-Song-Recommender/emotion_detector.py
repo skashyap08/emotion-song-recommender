@@ -1,5 +1,4 @@
 import cv2
-from fer import FER
 from song_recommender import recommend_song
 
 # Start webcam
